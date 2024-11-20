@@ -11,12 +11,7 @@ import categoryRoute from "./routes/categoryRoute.js";
 // app config
 const app = express();
 const port = 4000;
-const cors = require("cors")
-const corsConfig = {
-  origin : "*",
-  Credential : true,
-  methods : ["GET", "POST", "PUT", "DELETE"]
-}
+
 // middleware
 app.use(express.json());
 app.use(cors(corsConfig));
