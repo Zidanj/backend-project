@@ -8,20 +8,20 @@ import cartRouter from "./routes/cartRoute.js";
 import orderRouter from "./routes/orderRoute.js";
 import dashboardRoute from "./routes/dashboardRoute.js";
 import categoryRoute from "./routes/categoryRoute.js";
+import ngrok from "ngrok";
+
 // app config
 const app = express();
 const port = 4000;
 
 // middleware
 app.use(express.json());
-app.use(cors(corsConfig));
-app.options("", cors(corsConfig))
+
 
 // DB connection
 connectDB();
 
 // api endpoints
-app.use(express.static(path.join()))
 app.use("/api/product", productRouter);
 app.use("/images", express.static("uploads"));
 app.use("/category/images", express.static("uploads/category"));
@@ -35,6 +35,8 @@ app.get("/", (req, res) => {
   res.send("API IS WORKING");
 });
 
-app.listen(port, () => {
+app.listen(port,
+   () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
+
