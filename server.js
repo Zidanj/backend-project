@@ -23,8 +23,8 @@ connectDB();
 
 // api endpoints
 app.use("/api/product", productRouter);
-app.use("/images", express.static("uploads"));
-app.use("/category/images", express.static("uploads/category"));
+app.use("/images", express.static("/tmp/uploads"));
+app.use("/category/images", express.static("/tmp/uploads/category"));
 app.use("/api/user", userRouter);
 app.use("/api/cart", cartRouter);
 app.use("/api/order", orderRouter);
