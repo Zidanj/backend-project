@@ -20,6 +20,7 @@ const corsConfig = {
 // middleware
 app.use(express.json());
 app.use(cors(corsConfig));
+app.options("", cors(corsConfig))
 
 // DB connection
 connectDB();
