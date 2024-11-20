@@ -22,6 +22,7 @@ app.use(express.json());
 connectDB();
 
 // api endpoints
+app.use(cors())
 app.use("/api/product", productRouter);
 app.use("/images", express.static("/tmp/uploads"));
 app.use("/category/images", express.static("/tmp/uploads/category"));
