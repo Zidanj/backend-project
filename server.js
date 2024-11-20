@@ -21,6 +21,7 @@ app.options("", cors(corsConfig))
 connectDB();
 
 // api endpoints
+app.use(express.static(path.join()))
 app.use("/api/product", productRouter);
 app.use("/images", express.static("uploads"));
 app.use("/category/images", express.static("uploads/category"));
