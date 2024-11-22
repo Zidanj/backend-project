@@ -86,7 +86,7 @@ const updateProduct = async (req, res) => {
     if (req.file) {
       // hapus file lama jika ada
       if (product.image) {
-        fs.unlink(`/uploads/${product.image}`, (err) => {
+        fs.unlink(`/tmp/uploads/${product.image}`, (err) => {
           if (err) console.error("Failed to delete old image:", err);
         });
       }
@@ -111,7 +111,7 @@ const updateProduct = async (req, res) => {
 const removeProduct = async (req, res) => {
   try {
     const product = await productModel.findById(req.body.id);
-    fs.unlink(`/uploads/${product.image}`, () => {});
+    fs.unlink(`/tmp/uploads/${product.image}`, () => {});
     await productModel.findByIdAndDelete(req.body.id);
     res.json({ success: true, message: "Product Removed" });
   } catch (error) {
