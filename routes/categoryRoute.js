@@ -6,7 +6,7 @@ const categoryRouter = express.Router();
 
 // image storage engine
 const storage = multer.diskStorage({
-  destination: "/tmp/uploads/category",
+  destination: "/uploads/category",
   filename: (req, file, cb) => {
     return cb(null, `${Date.now()}${file.originalname}`);
   },

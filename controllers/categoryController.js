@@ -56,7 +56,7 @@ const updateCategory = async (req, res) => {
 
     // kalau ada file baru, hapus gambar lama dan simpan gambar baru
     if (req.file) {
-      fs.unlink(`/tmp/uploads/category/${category.image}`, (err) => {
+      fs.unlink(`/uploads/category/${category.image}`, (err) => {
         if (err) console.log(err);
       });
       category.image = req.file.filename;
@@ -75,7 +75,7 @@ const updateCategory = async (req, res) => {
 const removeCategory = async (req, res) => {
   try {
     const category = await categoryModel.findById(req.body.id);
-    fs.unlink(`/tmp/uploads/category/${category.image}`, () => {});
+    fs.unlink(`/uploads/category/${category.image}`, () => {});
     await categoryModel.findByIdAndDelete(req.body.id);
     res.json({ success: true, message: "Category Removed" });
   } catch (error) {
